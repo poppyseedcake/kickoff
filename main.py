@@ -1,26 +1,16 @@
 from textual.app import App
 from textual import events
+from textual.containers import HorizontalGroup, VerticalScroll
+from textual.widgets import Header, Footer
 
 class KickOff(App):
-    COLORS = [
-        "white",
-        "maroon",
-        "red",
-        "purple",
-        "fuchsia",
-        "olive",
-        "yellow",
-        "navy",
-        "teal",
-        "aqua",
-    ]
+    BINDINGS = [("s", "settings", "Open Settings")]
 
-    def on_mount(self) -> None:
-        self.screen.styles.background = "darkblue"
-
-    def on_key(self, event: events.Key) -> None:
-        if event.key.isdecimal():
-            self.screen.styles.background = self.COLORS[int(event.key)]
+    def compose(self):
+        yield Header()
+        yield Footer()
+        yield VerticalScroll()
+        #
 
 if __name__ == "__main__":
     app = KickOff()
