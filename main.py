@@ -10,7 +10,6 @@ class KickOff(App):
         yield Header()
         yield Footer()
         yield VerticalScroll()
-        #
 
 if __name__ == "__main__":
     app = KickOff()
